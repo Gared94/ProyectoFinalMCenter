@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MCENTER.Models.PROVEEDORES>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h2>Proveedores</h2>
+
+<a href='@Url.Action("Create", "PROVEEDORES")'>
+    <img src="~/img/nuevo.ico" width="30" height="30" title="Nuevo proveedor" />
+</a>
+<table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.proveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.notas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.proveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.notas)
+                </td>
+                <td>
+                    <a href='@Url.Action("Edit", "PROVEEDORES", new { id = item.id_proveedor })'>
+                        <img src="~/img/actualizar.ico" width="30" height="30" title="Actualizar categoria" />
+                    </a>
+
+                    <a href='@Url.Action("Delete", "PROVEEDORES", new { id = item.id_proveedor})'>
+                        <img src="~/img/eliminar.ico" width="30" height="30" title="Borrar categoria" />
+                    </a>
+
+
+                </td>
+            </tr>
+
+        }</tbody>
+
+</table>

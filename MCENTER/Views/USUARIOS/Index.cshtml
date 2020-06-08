@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MCENTER.Models.USUARIOS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h2>Usuarios</h2>
+
+<a href='@Url.Action("Create", "USUARIOS")'>
+    <img src="~/img/nuevo.ico" width="30" height="30" title="Nuevo usuario" />
+</a>
+<table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.usuario)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.clave)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.ROLES.rol)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.clave)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.ROLES.rol)
+        </td>
+        <td>
+            <a href='@Url.Action("Edit", "USUARIOS", new { id = item.id_usuario})'>
+                <img src="~/img/actualizar.ico" width="30" height="30" title="Actualizar usuario" />
+            </a>
+
+            <a href='@Url.Action("Delete", "USUARIOS", new { id = item.id_usuario})'>
+                <img src="~/img/eliminar.ico" width="30" height="30" title="Borrar usuario" />
+            </a>
+
+        </td>
+    </tr>
+}
+
+</table>

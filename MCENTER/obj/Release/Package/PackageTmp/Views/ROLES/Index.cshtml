@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MCENTER.Models.ROLES>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h2>Roles</h2>
+
+<a href='@Url.Action("Create", "ROLES")'>
+    <img src="~/img/nuevo.ico" width="30" height="30" title="Nuevo rol" />
+</a>
+
+<table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.rol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.rol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+
+                <a href='@Url.Action("Edit", "ROLES", new { id = item.id_rol})'>
+                    <img src="~/img/actualizar.ico" width="30" height="30" title="Actualizar rol" />
+                </a>
+
+                <a href='@Url.Action("Delete", "ROLES", new { id = item.id_rol})'>
+                    <img src="~/img/eliminar.ico" width="30" height="30" title="Borrar rol" />
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MCENTER.Models.ListaVenta>
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h2>Detalles de la venta </h2> 
+@if (Model != null)
+{
+
+    <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+        <thead>
+            <tr>
+
+                <th>Producto</th>
+                @*<th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>*@
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var lista in Model)
+            {
+                <tr>
+
+                    <td>@lista.Producto.Nombre</td>
+                    @*<td>@String.Format("{0:C}", lista.Producto.Precio)</td>
+                    <td>@lista.Cantidad</td>
+                    <td>@String.Format("{0:C}", lista.Total)</td>*@
+
+
+
+                </tr>
+            }
+           
+        </tbody>
+    </table>
+}

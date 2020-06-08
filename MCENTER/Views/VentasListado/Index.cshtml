@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MCENTER.Models.Venta>
+@{
+    ViewBag.Title = "Ventas del dia";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+    <h2>Ventas del dia</h2>
+@if (Model != null)
+{
+    <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+        <thead>
+            <tr>
+                
+                <th>Fecha</th>
+                <th>Subtotal</th>
+                <th>IVA</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var venta in Model)
+            {
+                <tr>
+
+                   
+                    <td>@venta.DiaVenta</td>
+                    <td>@String.Format("{0:C}", venta.Subtotal)</td>
+                    <td>@String.Format("{0:C}", venta.Iva)</td>
+                    <td>@String.Format("{0:C}", venta.Total)</td>
+                    <td>@Html.ActionLink("Detalles","Detalles","VentasListado", new { idventa = venta.Id }, null)</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

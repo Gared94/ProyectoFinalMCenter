@@ -1,0 +1,64 @@
+﻿@model MCENTER.Models.USUARIOS
+@{ ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout_registro.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+<fieldset>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+
+
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @if (@ViewBag.Message != null)
+    {
+<div style="border: 1px solid red">
+    @ViewBag.Message
+</div>}
+
+
+
+
+
+
+    <div class="form-wrapper">
+        @*<img src="https://i.ibb.co/12nDjWB/user.png" class="user">
+            <h2>Login</h2>*@
+        <form>
+            <img src="~/img/Captura.PNG" />
+            <label>@Html.LabelFor(a => a.usuario)</label>
+            @Html.TextBoxFor(a => a.usuario)
+            @Html.ValidationMessageFor(a => a.usuario)
+
+
+
+            @Html.LabelFor(a => a.clave, "clave")
+
+
+
+            @Html.PasswordFor(a => a.clave)
+            @Html.ValidationMessageFor(a => a.clave)
+
+
+
+            <input type="submit" value="Ingresar" class="btn btn-success" />
+
+
+
+            <label>
+                Este sistema ha sido desarrollado para la
+                administracion del sistema de venta de medicamentos
+                OnLine, cumpliendo con el proyecto de la materia
+                Programacion II del ciclo 01-2020
+            </label>
+        </form>
+    </div>
+
+
+
+</fieldset>}

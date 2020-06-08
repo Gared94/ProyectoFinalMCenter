@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MCENTERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__Catego__25869641" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="ListaVenta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VentaId" Type="Int32" />
+    <Property Name="ProductoId" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Total" Type="Double" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK__ListaVent__Produ__239E4DCF" FromRole="ListaVenta" ToRole="Producto" />
+    <NavigationProperty Name="Venta1" Relationship="Self.FK__ListaVent__Venta__31EC6D26" FromRole="ListaVenta" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Precio" Type="Double" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="Foto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CategoriaId" Type="Int32" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Categoria" Relationship="Self.FK__Producto__Catego__25869641" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="ListaVenta" Relationship="Self.FK__ListaVent__Produ__239E4DCF" FromRole="Producto" ToRole="ListaVenta" />
+    <Property Name="id_proveedor" Type="Int32" />
+    <NavigationProperty Name="PROVEEDORES" Relationship="MCENTERModel.FK_PRODUCTO_REFERENCE_PROVEEDO" FromRole="Producto" ToRole="PROVEEDORES" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiaVenta" Type="DateTime" Precision="3" />
+    <Property Name="Subtotal" Type="Double" />
+    <Property Name="Iva" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <NavigationProperty Name="ListaVenta1" Relationship="Self.FK__ListaVent__Venta__31EC6D26" FromRole="Venta" ToRole="ListaVenta" />
+    <NavigationProperty Name="PAGO" Relationship="MCENTERModel.FK_PAGO_REFERENCE_VENTA" FromRole="Venta" ToRole="PAGO" />
+  </EntityType>
+  <Association Name="FK__Producto__Catego__25869641">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="CategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListaVent__Produ__239E4DCF">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="ListaVenta" Type="Self.ListaVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListaVenta">
+        <PropertyRef Name="ProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ListaVent__Venta__31EC6D26">
+    <End Role="Venta" Type="Self.Venta" Multiplicity="0..1" />
+    <End Role="ListaVenta" Type="Self.ListaVenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListaVenta">
+        <PropertyRef Name="VentaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MCENTEREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="ListaVenta" EntityType="Self.ListaVenta" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" />
+    <AssociationSet Name="FK__Producto__Catego__25869641" Association="Self.FK__Producto__Catego__25869641">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListaVent__Produ__239E4DCF" Association="Self.FK__ListaVent__Produ__239E4DCF">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ListaVenta" EntitySet="ListaVenta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ListaVent__Venta__31EC6D26" Association="Self.FK__ListaVent__Venta__31EC6D26">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="ListaVenta" EntitySet="ListaVenta" />
+    </AssociationSet>
+    <EntitySet Name="PROVEEDORES" EntityType="MCENTERModel.PROVEEDORES" />
+    <EntitySet Name="ROLES" EntityType="MCENTERModel.ROLES" />
+    <EntitySet Name="USUARIOS" EntityType="MCENTERModel.USUARIOS" />
+    <AssociationSet Name="FK_PRODUCTO_REFERENCE_PROVEEDO" Association="MCENTERModel.FK_PRODUCTO_REFERENCE_PROVEEDO">
+      <End Role="PROVEEDORES" EntitySet="PROVEEDORES" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_REFERENCE_ROLES" Association="MCENTERModel.FK_USUARIOS_REFERENCE_ROLES">
+      <End Role="ROLES" EntitySet="ROLES" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <EntitySet Name="PAGO" EntityType="MCENTERModel.PAGO" />
+    <AssociationSet Name="FK_PAGO_REFERENCE_VENTA" Association="MCENTERModel.FK_PAGO_REFERENCE_VENTA">
+      <End Role="Venta" EntitySet="Venta" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PROVEEDORES">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proveedor" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="notas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="MCENTERModel.FK_PRODUCTO_REFERENCE_PROVEEDO" FromRole="PROVEEDORES" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="ROLES">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USUARIOS" Relationship="MCENTERModel.FK_USUARIOS_REFERENCE_ROLES" FromRole="ROLES" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_rol" Type="Int32" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ROLES" Relationship="MCENTERModel.FK_USUARIOS_REFERENCE_ROLES" FromRole="USUARIOS" ToRole="ROLES" />
+  </EntityType>
+  <Association Name="FK_PRODUCTO_REFERENCE_PROVEEDO">
+    <End Type="MCENTERModel.PROVEEDORES" Role="PROVEEDORES" Multiplicity="0..1" />
+    <End Type="MCENTERModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDORES">
+        <PropertyRef Name="id_proveedor" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_REFERENCE_ROLES">
+    <End Type="MCENTERModel.ROLES" Role="ROLES" Multiplicity="0..1" />
+    <End Type="MCENTERModel.USUARIOS" Role="USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLES">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PAGO">
+    <Key>
+      <PropertyRef Name="id_pago" />
+    </Key>
+    <Property Name="id_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" />
+    <Property Name="tarjeta" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="fecharVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="titular" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Venta" Relationship="MCENTERModel.FK_PAGO_REFERENCE_VENTA" FromRole="PAGO" ToRole="Venta" />
+  </EntityType>
+  <Association Name="FK_PAGO_REFERENCE_VENTA">
+    <End Type="MCENTERModel.Venta" Role="Venta" Multiplicity="0..1" />
+    <End Type="MCENTERModel.PAGO" Role="PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

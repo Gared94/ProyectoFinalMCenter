@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "FinalizaCompra";
+}
+
+<h2>Confirmar compra</h2>
+
+<table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+    <thead>
+        <tr>
+            
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            double total = 0;
+        }
+        @if (Session["carrito"] != null)
+        {
+
+            foreach (var item in (List<MCENTER.Models.CarritoItem>)Session["carrito"])
+            {
+                total += (double)(item.Cantidad * item.Producto.Precio);
+                <tr>
+                    
+                    <td>@item.Producto.Nombre</td>
+                    <td>@String.Format("{0:C}", item.Producto.Precio)</td>
+                    <td>@item.Cantidad</td>
+                    <td>@String.Format("{0:C}", (item.Cantidad * item.Producto.Precio))</td>
+
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="4">Total</th>
+            <th>@String.Format("{0:c}", total)</th>
+        </tr>
+    </tfoot>
+    @Html.ActionLink("Pagar", "Create", "PAGOes", null, null)
+</table>

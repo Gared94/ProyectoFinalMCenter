@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MCENTER.Models.Producto>
+@{
+
+    ViewBag.Title = "Productos";
+}
+
+<h2>Productos</h2>
+@if (Model != null)
+{
+    <table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+        <thead>
+            <tr>
+                
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <td>@item.Nombre</td>
+                    <td>@String.Format("{0:C}", item.Precio)</td>
+                    <td>@Html.ActionLink("Agregar", "AgregaCarrito", "Carrito", new { Id = item.Id }, null)</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

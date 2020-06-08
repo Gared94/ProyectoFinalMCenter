@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MCENTER.Models.Categoria>
+
+@{
+    ViewBag.Title = "Categoria";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+
+}
+
+<h2>Categorias</h2>
+<a href='@Url.Action("Create", "Categorias")'>
+    <img src="~/img/nuevo.ico" width="30" height="30" title="Nueva categoria" />
+</a>
+
+<table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                <a href='@Url.Action("Edit", "Categorias", new { id = item.Id})'>
+                    <img src="~/img/actualizar.ico" width="30" height="30" title="Actualizar categoria" />
+                </a>
+
+                <a href='@Url.Action("Delete", "Categorias", new { id = item.Id})'>
+                    <img src="~/img/eliminar.ico" width="30" height="30" title="Borrar categoria" />
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

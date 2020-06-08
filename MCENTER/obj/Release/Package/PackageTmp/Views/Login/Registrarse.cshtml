@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/Shared/_Layout_registro.cshtml";
+}
+
+    <div class="centrar">
+
+        <a href='@Url.Action("Registro", "USUARIOS")'>
+            <img src="~/img/Registrarse.png" width="100" height="100" title="Registrarse" />
+        </a>
+        @Html.ActionLink("Ya poseo un usuario", "Login", "Login") 
+    </div>

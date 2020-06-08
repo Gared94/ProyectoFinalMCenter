@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MCENTER.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<a href='@Url.Action("Create", "Productoes")'>
+    <img src="~/img/nuevo.ico" width="30" height="30" title="Nuevo producto" />
+</a>
+
+<table cellspacing="0" cellpadding="0" id="mi-tabla" class="tabla">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </th>
+           @*  *@
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROVEEDORES.proveedor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROVEEDORES.proveedor)
+            </td>
+            <td>
+                <a href='@Url.Action("Edit", "Productoes", new { id = item.Id})'>
+                    <img src="~/img/actualizar.ico" width="30" height="30" title="Actualizar producto" />
+                </a>
+
+                <a href='@Url.Action("Delete", "Productoes", new { id = item.Id})'>
+                    <img src="~/img/eliminar.ico" width="30" height="30" title="Borrar producto" />
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
