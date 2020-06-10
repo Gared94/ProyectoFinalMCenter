@@ -88,3 +88,4 @@ C:\Users\epineda\source\repos\MCENTER\MCENTER\obj\Debug\MCENTER.csproj.CoreCompi
 C:\Users\epineda\source\repos\MCENTER\MCENTER\obj\Debug\MCENTER.csproj.CopyComplete
 C:\Users\epineda\source\repos\MCENTER\MCENTER\obj\Debug\MCENTER.dll
 C:\Users\epineda\source\repos\MCENTER\MCENTER\obj\Debug\MCENTER.pdb
+C:\Users\epineda\source\repos\MCENTER\MCENTER\obj\Debug\MCENTER.csprojAssemblyReference.cache

@@ -31,7 +31,7 @@
             <h2>Login</h2>*@
         <form>
             <img src="~/img/Captura.PNG" />
-            <label>@Html.LabelFor(a => a.usuario)</label>
+            @Html.LabelFor(a => a.usuario)
             @Html.TextBoxFor(a => a.usuario)
             @Html.ValidationMessageFor(a => a.usuario)
 
@@ -45,16 +45,70 @@
             @Html.ValidationMessageFor(a => a.clave)
 
 
+            @*<div class="mainDiv container">
+            <div class="left">
+                <div class="signin">
+                    <h2 class="text-center">Sign In</h2>
+                    <p class="text-center">Regsitrate para poder realizar la compra de tus medicamentos</p>
 
+                    <button id="signinBtn" class="btn btn-success" type="button" name="button">Sign In</button>
+                </div>
+                <div class="signup">
+                    <h2 class="text-center">Sign Up</h2>
+                    <p class="text-center">Lorem ipsum dolor sit amet. </p>
+                    <button id="signupBtn" class="btn btn-success" type="button" name="button">Sign Up</button>
+                </div>
+            </div>
+
+            <div id="signinform" class="signinForm">
+
+                <p class="title1">SIGN IN</p>
+                <form class="login_form" action="index.html" method="post">
+                    <br>
+                    <div class="icon"><i class="fas fa-user-circle "></i></div>
+                    <input id="uname1" type="text" name="uname" placeholder="Username" required>
+                    <br>
+                    <br>
+                    <div class="icon"><i class="fas fa-key "></i></div>
+                    <input id="pass1" type="password" name="pass" placeholder="Password" required>
+                    <br><br>
+                    <input class="btn btn-primary" type="submit" name="submit" value="Sign In">
+
+                </form>
+            </div>
+            <div id="signupform" class="signupForm">
+                <form class="login_form" action="index.html" method="post">
+                    <p class="title1">SIGN UP</p>
+
+                    <div class="icon"><i class="fab fa-adn"></i></div>
+                    <input class="signupInput" id="name2" type="text" name="name" placeholder="Enter your name" required>
+                    <br>
+                    <div class="icon"><i class="fas fa-at"></i></div>
+                    <input class="signupInput" id="email2" type="text" name="email" placeholder="Enter your email" required>
+                    <br>
+                    <div class="icon"><i class="fas fa-user"></i></div>
+                    <input class="signupInput" id="uname2" type="text" name="uname" placeholder="Choose a username" required>
+                    <br>
+                    <div class="icon"><i class="fas fa-key"></i></div>
+                    <input class="signupInput" id="pass2" type="password" name="pass" placeholder="Choose a password" required>
+                    <br><br>
+                    <input class="btn btn-success btn2" type="submit" name="submit" value="Sign up">
+
+                </form>
+            </div>
+
+        </div>*@
+
+            @*
+
+            *@
             <input type="submit" value="Ingresar" class="btn btn-success" />
-
-
-
             <label>
                 Este sistema ha sido desarrollado para la
                 administracion del sistema de venta de medicamentos
                 OnLine, cumpliendo con el proyecto de la materia
                 Programacion II del ciclo 01-2020
+                @Html.ActionLink("Registrarme", "Registro", "USUARIOS")
             </label>
         </form>
     </div>

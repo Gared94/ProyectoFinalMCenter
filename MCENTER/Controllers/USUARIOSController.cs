@@ -60,7 +60,9 @@ namespace MCENTER.Controllers
             {
                 db.USUARIOS.Add(uSUARIOS);
                 db.SaveChanges();
-                return Redirect("~/Views/Login/Login.cshtml");
+
+                return RedirectToAction("Login", "Login");
+               
 
             }
 

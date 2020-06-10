@@ -201,7 +201,9 @@
     <Content Include="img\Captura.PNG" />
     <Content Include="img\eliminar.ico" />
     <Content Include="img\nuevo.ico" />
+    <Content Include="img\post.PNG" />
     <Content Include="img\Registrarse.png" />
+    <Content Include="img\visa.PNG" />
     <Content Include="Models\MEDICENTER.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MEDICENTER.edmx</DependentUpon>

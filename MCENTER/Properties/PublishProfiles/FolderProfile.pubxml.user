@@ -44,10 +44,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:36</publishTime>
     </File>
     <File Include="bin/MCENTER.dll">
-      <publishTime>06/07/2020 17:56:43</publishTime>
+      <publishTime>06/09/2020 21:57:01</publishTime>
     </File>
     <File Include="bin/MCENTER.pdb">
-      <publishTime>06/07/2020 17:56:43</publishTime>
+      <publishTime>06/09/2020 21:57:01</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -254,7 +254,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/04/2020 19:45:08</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>06/07/2020 16:02:04</publishTime>
+      <publishTime>06/09/2020 21:37:27</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>06/04/2020 19:45:04</publishTime>
@@ -289,8 +289,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="img/nuevo.ico">
       <publishTime>06/06/2020 17:27:17</publishTime>
     </File>
+    <File Include="img/post.PNG">
+      <publishTime>06/09/2020 20:29:46</publishTime>
+    </File>
     <File Include="img/Registrarse.png">
       <publishTime>06/07/2020 15:31:35</publishTime>
+    </File>
+    <File Include="img/visa.PNG">
+      <publishTime>06/09/2020 20:29:46</publishTime>
     </File>
     <File Include="Models/MEDICENTER.edmx.diagram">
       <publishTime>06/07/2020 17:04:26</publishTime>
@@ -392,10 +398,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/07/2020 15:03:38</publishTime>
     </File>
     <File Include="Views/Login/Login.cshtml">
-      <publishTime>06/07/2020 17:39:14</publishTime>
+      <publishTime>06/09/2020 21:56:27</publishTime>
     </File>
     <File Include="Views/Login/Registrarse.cshtml">
-      <publishTime>06/07/2020 17:18:43</publishTime>
+      <publishTime>06/09/2020 21:40:09</publishTime>
     </File>
     <File Include="Views/MisionVision/MisionVision.cshtml">
       <publishTime>06/06/2020 21:37:37</publishTime>
@@ -407,7 +413,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/06/2020 21:03:02</publishTime>
     </File>
     <File Include="Views/PAGOes/Create.cshtml">
-      <publishTime>06/06/2020 20:54:22</publishTime>
+      <publishTime>06/09/2020 20:30:20</publishTime>
     </File>
     <File Include="Views/PAGOes/Delete.cshtml">
       <publishTime>06/06/2020 20:42:34</publishTime>
@@ -473,13 +479,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/04/2020 19:45:04</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/07/2020 13:44:12</publishTime>
+      <publishTime>06/07/2020 18:58:38</publishTime>
     </File>
     <File Include="Views/Shared/_Layout_admin.cshtml">
-      <publishTime>06/07/2020 14:57:46</publishTime>
+      <publishTime>06/07/2020 18:58:38</publishTime>
     </File>
     <File Include="Views/Shared/_Layout_registro.cshtml">
-      <publishTime>06/07/2020 17:40:52</publishTime>
+      <publishTime>06/09/2020 21:34:41</publishTime>
     </File>
     <File Include="Views/USUARIOS/Create.cshtml">
       <publishTime>06/07/2020 17:52:13</publishTime>
